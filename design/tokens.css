@@ -1,0 +1,77 @@
+/* ADIT design tokens: the "data-ops console" world: near-black hue-free
+   charcoals, one functional blue, a blue/red signed pair, eight categorical hues, Sometype Mono
+   for figures, system sans for prose, 12px type floor, dark by default with a light translation
+   behind [data-theme="light"]. DESIGN.md at the repo root is the written system; this file is the
+   values. Change a value here and in DESIGN.md together. */
+@import url("fonts/sometype.css");
+
+/* ---------- tokens ---------- */
+:root {
+  /* neutral charcoals — no hue in any grey, so nothing reads as tinted */
+  --ground: #0a0a0b;
+  --chrome: #101012;
+  --panel: #141416;
+  --panel-2: #1a1a1d;
+  --well: #0e0e10;
+  --hairline: #26262a;
+  --hairline-2: #1f1f22;
+  --edge: #35353b;
+  --ink: #f4f4f5;        /* 16.6:1 on --panel */
+  --ink-strong: #fdfdfd;
+  --body: #d4d4d7;       /* 12.4:1 */
+  --muted: #a0a0a6;      /* 7.8:1 */
+  --faint: #8b8b92;      /* 12px text on --panel: 5.4:1 */
+  --dim: #5c5c63;        /* marks, dashes and resting underlines — never body text */
+  --blue: #5fa8ef;       /* profit, and interactive state. Nothing else. */
+  --blue-tint: #152738;
+  --blue-deep: #14222f;
+  --blue-hover: #1b3247;
+  --red: #ee6a63;
+  --active: #1c1c20;
+  --hover: #151518;
+  --backdrop: rgba(0, 0, 0, 0.74);
+  /* a link is ink over a dim rule; the rule lights up rather than the text changing hue */
+  --link-line: #4a4a52;
+  --cat-0: #d9a648; --cat-1: #5fb49c; --cat-2: #a98fda; --cat-3: #d4707f;
+  --cat-4: #8fbc63; --cat-5: #c98f5e; --cat-6: #64b5d9; --cat-7: #9aa3ad;
+
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "Sometype Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  /* type scale, 12px floor */
+  --t1: 12px; --t2: 13px; --t3: 14px; --t4: 16px; --t5: 20px; --t6: 26px; --t7: 32px;
+  /* spacing */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px;
+  --radius: 4px;
+  --rail: 224px;
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
+  --ground: #f0f0f1;
+  --chrome: #e8e8ea;
+  --panel: #ffffff;
+  --panel-2: #f5f5f6;
+  --well: #f8f8f9;
+  --hairline: #d9d9dc;
+  --hairline-2: #e6e6e8;
+  --edge: #bcbcc2;
+  --ink: #17171a;
+  --ink-strong: #0b0b0d;
+  --body: #2c2c31;
+  --muted: #56565d;
+  --faint: #5f5f67;      /* 12px on white: 6.4:1 */
+  --dim: #9a9aa2;
+  --blue: #1b5fbe;
+  --blue-tint: #dfeafb;
+  --blue-deep: #e9f0fc;
+  --blue-hover: #cfe1f8;
+  --red: #c23a34;
+  --active: #e6e6e9;
+  --hover: #efeff1;
+  --backdrop: rgba(240, 240, 241, 0.82);
+  --link-line: #b4b4bb;
+  --cat-0: #8a6a1f; --cat-1: #2e7d64; --cat-2: #6b4fa0; --cat-3: #a8445a;
+  --cat-4: #557a2e; --cat-5: #8a5a2e; --cat-6: #3e7d8a; --cat-7: #5a636e;
+  color-scheme: light;
+}
+

@@ -1,0 +1,6 @@
+{
+  "buildPath": "comp",
+  "hook": {
+    "enabled": true
+  }
+}

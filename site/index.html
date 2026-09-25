@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Mockent</title>
+  <link rel="stylesheet" href="design/tokens.css">
+  <style>
+    /* Holding page only. Not the app; not a designed surface. Tokens from design/tokens.css, copied in by scripts/build-pages.sh. */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: var(--ground); }
+    body {
+      margin: 0; min-height: 100vh; display: grid; place-items: center;
+      background: var(--ground); color: var(--body);
+      font-family: var(--sans); font-size: var(--t3); line-height: 1.5;
+      padding: var(--s5) var(--s4);
+    }
+    main { max-width: 44ch; }
+    h1 { color: var(--ink); font-size: var(--t5); font-weight: 600; margin: 0 0 var(--s2); }
+    p { margin: 0 0 var(--s3); }
+    a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--link-line); }
+    a:hover { border-color: var(--ink); }
+    .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+    .soft { color: var(--faint); font-size: var(--t1); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Mockent</h1>
+    <p><a href="adit/">ADIT</a> — a mock enterprise application for mineral exploration management, by an invented vendor for an invented company.</p>
+    <p class="soft mono">scaffolded 2026-09-21</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,97 @@
+name: Pages
+
+# Tests and builds everything in the repository (scripts/build-pages.sh) and
+# publishes it as one GitHub Pages site: site/ at <pages-root>/mockent/ and
+# each app at <pages-root>/mockent/<folder>/.
+#
+# Pull requests get the same tests and build, and never deploy. Only main
+# deploys: the github-pages environment is restricted to the default branch.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deploy at a time, and a queued one finishes rather than being cancelled:
+# a half-published site is worse than a slightly stale one. Pull requests get
+# their own group, where a newer push does cancel the older run.
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('pr-{0}', github.ref) || 'pages' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Test and build
+        env:
+          REPO_NAME: ${{ github.event.repository.name }}
+        run: scripts/build-pages.sh
+
+      # The workflow token is not permitted to create a Pages site. Pages has to
+      # be switched on once by a human; fail with that instruction rather than a
+      # cryptic 404 from configure-pages further down.
+      - name: Check Pages is enabled
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages")
+          if [ "$code" = "404" ]; then
+            {
+              echo "### GitHub Pages is not enabled yet"
+              echo ""
+              echo "Tests and build passed. Pages needs switching on once:"
+              echo "Settings → Pages → Build and deployment → Source → **GitHub Actions**, then re-run."
+            } >> "$GITHUB_STEP_SUMMARY"
+            echo "::error::Pages not enabled. Set Settings → Pages → Source to 'GitHub Actions', then re-run."
+            exit 1
+          fi
+          echo "Pages API responded $code — configured."
+
+      - uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
+
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: _site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Where it landed
+        env:
+          SITE: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          {
+            echo "### Published"
+            echo ""
+            echo "**$SITE**"
+          } >> "$GITHUB_STEP_SUMMARY"

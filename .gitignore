@@ -1,0 +1,51 @@
+# Dependencies and build output. _site/ and dist/ are produced by the Pages
+# workflow; a committed copy goes stale and misleads.
+node_modules/
+dist/
+_site/
+*.local
+
+# OS and editor litter
+.DS_Store
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.sw?
+__pycache__/
+
+# Secrets never belong in this repository.
+.env
+.env.*
+!.env.example
+
+# Per-machine agent state. The impeccable hook itself is committed in
+# .claude/settings.json, .codex/hooks.json and .cursor/hooks.json (their paths
+# are project-relative); it does nothing until the skill is installed.
+.claude/settings.local.json
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+
+# The impeccable skill is installed locally (`npx impeccable install`), never
+# committed: its skill copies, subagents and per-platform binary stay out of git.
+.agents/skills/impeccable/
+.claude/skills/impeccable/
+.cursor/skills/impeccable/
+.claude/agents/impeccable-*
+.cursor/agents/impeccable-*
+
+# This repository is public: session memory is kept privately, not here.
+# Guard against an agent recreating the old OKF log out of habit.
+okf/log.md
+
+# Impeccable session scratch. The durable records are PRODUCT.md, DESIGN.md,
+# .impeccable/design.json and .impeccable/surfaces/.
+.impeccable/questions/
+.impeccable/decision/
+.impeccable/review/
+.impeccable/critique/
+.impeccable/live/
+.playwright-mcp/
+
+# Vite dependency cache written by a stray dev-server run at the root.
+.vite/
