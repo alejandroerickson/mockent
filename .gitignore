@@ -35,7 +35,7 @@ __pycache__/
 .cursor/agents/impeccable-*
 
 # This repository is public: session memory is kept privately, not here.
-# Guard against an agent recreating the old OKF log out of habit.
+# Guard against an agent creating an OKF log out of habit.
 okf/log.md
 
 # Impeccable session scratch. The durable records are PRODUCT.md, DESIGN.md,

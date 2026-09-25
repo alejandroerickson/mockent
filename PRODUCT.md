@@ -2,7 +2,7 @@
 
 <!-- impeccable:product-schema 1 -->
 
-> Every fact below is either **[A]**, part of Alejandro's brief (2026-09-21), or **[inferred]**, chosen during the build to fill a gap. `okf/` holds the wider record; this file is the design-relevant subset.
+> Every fact below is either **[A]**, a stated requirement, or **[inferred]**, chosen during the build to fill a gap. `okf/` holds the wider record; this file is the design-relevant subset.
 
 ## Platform
 

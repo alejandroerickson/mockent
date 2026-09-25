@@ -1,7 +1,7 @@
 ---
 type: Decision
 title: The mock app is ADIT, an invented mineral-exploration management system, built in React under adit/
-description: Alejandro's 2026-09-21 brief fixed the domain and the stack in outline; the names, sections and data model were invented during the build and can be renamed.
+description: The brief fixed the domain and the stack in outline; the names, sections and data model were invented during the build and can be renamed.
 tags: [decision, product, stack]
 generated: {by: agent:claude, at: 2026-09-25T00:00:00Z}
 status: draft
@@ -9,7 +9,7 @@ status: draft
 
 # The mock app is ADIT
 
-**Context.** Alejandro's brief (2026-09-21): a generalized remote mining exploration app for experts, five
+**Context.** The brief: a generalized remote mining exploration app for experts, five
 different commodities, multiple users, notifications, workflows, admin and
 user settings, logistics, results, forecasts, analytics, budgets, an
 optimisation interface, approvals, stage outcomes, a vendor user manual in a

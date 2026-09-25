@@ -43,7 +43,7 @@ session it is first used.
 
 ## Rules for editors
 
-- **Say where a claim comes from**: observed in the code, told to us by Alejandro (dated), or inferred.
+- **Say where a claim comes from**: observed in the code, decided by Alejandro (dated), or inferred; never a record of what was said in a session.
 - **Correct in place, and date the correction.** Mark a wholly wrong concept `deprecated`, and never leave two concepts silently disagreeing.
 - **Do not write a proposal as though it were decided.**
 - **Link, do not copy.** Code and design records stay where they are.

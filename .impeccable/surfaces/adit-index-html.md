@@ -19,7 +19,7 @@ STORY: An exploration manager opens ADIT, sees where every project sits in the p
 
 FIRST VIEWPORT: The 48px topbar: brand ADIT with the module mark, nine L1 sections, at right the environment chip, search, notifications with a count, the user menu, Help (opens the manual in a new tab), theme. The L2 column at left lists the home's shapes (By stage, By commodity, By jurisdiction) and the watch list. Content: the page head (`Portfolio · Kestrel Range Resources`, the fiscal year and as-of date as mono meta), then the stage board spanning the width, six columns, each headed by its stage name, its count and its committed spend, holding tickets (project id in mono, name, commodity chip, the stage's live figure); then the attention ledger; then the projects register.
 
-FORM: Structure 4 of the ranked seven ("the stage board"; the deal was indices 4, 5, 6 of the grounded list and index 4 led). Seed key `8e1cc7d9`. Code-led: no image generation exists in this harness, so the comp round is skipped by contract and the ambition rides in FIRST VIEWPORT and the signature interaction, which is the stage board itself: a ticket opens its project, a column head opens the register cut to that stage.
+FORM: "the stage board". Seed key `8e1cc7d9`. Code-led: no comp round, so the ambition rides in FIRST VIEWPORT and the signature interaction, which is the stage board itself: a ticket opens its project, a column head opens the register cut to that stage.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
 
