@@ -73,7 +73,7 @@ are kept in the repository:
   and the invented world, which the assistants read before working.
   [`AGENTS.md`](AGENTS.md) is their orientation file.
 - The design work used the impeccable skill, which is not committed here;
-  `npx impeccable install` sets it up.
+  `npx impeccable install --global` sets it up once per machine.
 
 ## Layout
 
@@ -85,7 +85,7 @@ okf/                 the knowledge bundle
 site/                the Pages root, linking to adit/
 scripts/             build-pages.sh, which CI runs
 .github/workflows/   the Pages deploy
-.claude/ .codex/ .cursor/   the impeccable design hook, inert until impeccable is installed
+.claude/ .codex/ .cursor/   the impeccable design hook, inert without impeccable installed
 AGENTS.md            orientation for coding assistants (CLAUDE.md links to it)
 PRODUCT.md, DESIGN.md
 ```

@@ -40,7 +40,7 @@ made: `okf/domain/adit-mock-world.md`.
 | `DESIGN.md`, `.impeccable/design.json`, `design/` | The design system, derived from the built app. |
 | `site/` | The Pages root: a one-line page linking to `adit/`. |
 | `scripts/build-pages.sh`, `.github/workflows/pages.yml` | Deploy: every top-level folder with a `build` script, plus `site/`, to one Pages site. |
-| `.claude/`, `.codex/`, `.cursor/` | The impeccable design hook manifests (the skill itself is installed locally, see below). |
+| `.claude/`, `.codex/`, `.cursor/` | The impeccable design hook manifests (the skill is installed machine-wide, see below). |
 
 ## Knowledge: `okf/` is reference, not memory
 
@@ -55,12 +55,12 @@ dated, or inferred), without naming anything the rules above keep out.
 
 ## Design: impeccable, and the design system
 
-UI work uses the **impeccable** skill. It is **not committed**: install it
-locally with `npx impeccable install` (the installed copies under
-`.agents/`, `.claude/skills/`, `.cursor/skills/` and the subagents are
-gitignored). The hook manifests (`.claude/settings.json`, `.codex/hooks.json`,
-`.cursor/hooks.json`) are committed and do nothing until the skill is
-installed. Do not run `/impeccable hooks on`: it would write a second copy
+UI work uses the **impeccable** skill. It is **not committed**: it is
+installed once per machine with `npx impeccable install --global` (into
+`~/.claude/skills/`, `~/.agents/skills/` and `~/.cursor/skills/`). The hook
+manifests (`.claude/settings.json`, `.codex/hooks.json`, `.cursor/hooks.json`)
+are committed, call that machine-wide copy, and do nothing on a machine
+without it. Do not run `/impeccable hooks on`: it would write a second copy
 into `.claude/settings.local.json` and fire the detector twice.
 
 impeccable's records are `PRODUCT.md`, `DESIGN.md` with
